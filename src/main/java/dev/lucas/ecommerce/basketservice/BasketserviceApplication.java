@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
-@EnableFeignClients(basePackages = "client")
+@EnableFeignClients(basePackages = "dev.lucas.ecommerce.basketservice.client")
 public class BasketserviceApplication {
 
     public static void main(String[] args) {
