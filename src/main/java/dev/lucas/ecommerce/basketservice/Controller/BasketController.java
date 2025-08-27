@@ -19,9 +19,7 @@ public class BasketController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Basket> basketById(@PathVariable String id) {
-        return service.getBasketById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+        return ResponseEntity.ok().body(service.getBasketById(id));
     }
 
     @PostMapping
@@ -29,5 +27,9 @@ public class BasketController {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.createBasket(request));
     }
 
+    @PutMapping
+    public ResponseEntity<Basket> updateBasket(@PathVariable String id, @RequestBody BasketRequest request){
+        return ResponseEntity.ok().body(service.updateBasket(id, request));
+    }
 
 }
