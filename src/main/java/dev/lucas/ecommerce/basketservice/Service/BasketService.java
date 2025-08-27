@@ -20,12 +20,8 @@ public class BasketService {
     private final BasketRepository basketRepository;
     private final ProductService productService;
 
-    public Optional<Basket> getBasketById(String id) {
-        Optional<Basket> basket = basketRepository.findById(id);
-        if (basket.isEmpty()) {
-            throw new IllegalArgumentException("Basket not found with id: " + id);
-        }
-        return basket;
+    public Basket getBasketById (String id){
+        return basketRepository.findById(id).orElseThrow(()-> new IllegalArgumentException("Basket not found"));
     }
 
     public Basket createBasket (BasketRequest basketRequest){
@@ -52,6 +48,25 @@ public class BasketService {
                 .build();
         basket.calculeteTotalPrice();
         return basketRepository.save(basket);
+
+    }
+
+    public Basket updateBasket (String basketId, BasketRequest basketRequest) {
+        Basket savedbasket = basketRepository.findById(basketId).orElseThrow(()-> new IllegalArgumentException("Basket not found"));
+        List<Product> arrayProducts = new ArrayList<>();
+        basketRequest.products().forEach(productRequest -> {
+            PlatzProductResponse platzProductResponse = productService.getProductById(productRequest.id());
+            arrayProducts.add(Product.builder()
+                    .id(platzProductResponse.id())
+                    .title(platzProductResponse.title())
+                    .price(platzProductResponse.price())
+                    .quantity(productRequest.quantity())
+                    .build());
+        });
+
+        savedbasket.setProducts(arrayProducts);
+        savedbasket.calculeteTotalPrice();
+        return basketRepository.save(savedbasket);
 
     }
 }
