@@ -52,7 +52,7 @@ public class BasketService {
     }
 
     public Basket updateBasket (String basketId, BasketRequest basketRequest) {
-        Basket savedbasket = basketRepository.findById(basketId).orElseThrow(()-> new IllegalArgumentException("Basket not found"));
+        Basket savedbasket = getBasketById(basketId);
         List<Product> arrayProducts = new ArrayList<>();
         basketRequest.products().forEach(productRequest -> {
             PlatzProductResponse platzProductResponse = productService.getProductById(productRequest.id());
