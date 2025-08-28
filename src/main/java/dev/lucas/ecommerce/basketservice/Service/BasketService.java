@@ -2,6 +2,7 @@ package dev.lucas.ecommerce.basketservice.Service;
 
 import dev.lucas.ecommerce.basketservice.Client.Response.PlatzProductResponse;
 import dev.lucas.ecommerce.basketservice.Controller.Request.BasketRequest;
+import dev.lucas.ecommerce.basketservice.Controller.Request.PaymentRequest;
 import dev.lucas.ecommerce.basketservice.Entity.Basket;
 import dev.lucas.ecommerce.basketservice.Entity.Product;
 import dev.lucas.ecommerce.basketservice.Enum.Status;
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+
 
 @Service
 @RequiredArgsConstructor
@@ -68,5 +69,12 @@ public class BasketService {
         savedbasket.calculeteTotalPrice();
         return basketRepository.save(savedbasket);
 
+    }
+
+    public Basket payBasket (String basketId, PaymentRequest paymentRequest){
+        Basket savedbasket = getBasketById(basketId);
+        savedbasket.setPaymentMethod(paymentRequest.getPaymentMethod());
+        savedbasket.setStatus(Status.CLOSE);
+        return basketRepository.save(savedbasket);
     }
 }
