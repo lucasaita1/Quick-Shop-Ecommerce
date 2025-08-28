@@ -1,5 +1,6 @@
 package dev.lucas.ecommerce.basketservice.Entity;
 
+import dev.lucas.ecommerce.basketservice.Enum.PaymentMethod;
 import dev.lucas.ecommerce.basketservice.Enum.Status;
 import lombok.*;
 import org.springframework.data.annotation.Id;
@@ -26,6 +27,8 @@ public class Basket {
     private List<Product> products;
 
     private Status status;
+
+    private PaymentMethod paymentMethod;
 
     public void calculeteTotalPrice(){
         this.totalPrice = products.stream()
