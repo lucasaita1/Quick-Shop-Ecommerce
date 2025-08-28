@@ -1,5 +1,6 @@
 package dev.lucas.ecommerce.basketservice.Entity;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import dev.lucas.ecommerce.basketservice.Enum.PaymentMethod;
 import dev.lucas.ecommerce.basketservice.Enum.Status;
 import lombok.*;
@@ -28,6 +29,7 @@ public class Basket {
 
     private Status status;
 
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private PaymentMethod paymentMethod;
 
     public void calculeteTotalPrice(){
