@@ -33,16 +33,7 @@ public class BasketService {
                     throw new BusinessException("There is already an open basket for this client");
                 });
 
-        List<Product> arrayProducts = new ArrayList<>();
-        basketRequest.products().forEach(productRequest -> {
-            PlatzProductResponse platzProductResponse = productService.getProductById(productRequest.id());
-            arrayProducts.add(Product.builder()
-                    .id(platzProductResponse.id())
-                    .title(platzProductResponse.title())
-                    .price(platzProductResponse.price())
-                    .quantity(productRequest.quantity())
-                    .build());
-        });
+        List<Product> arrayProducts = getProducts(basketRequest);
 
         Basket basket = Basket.builder()
                 .client(basketRequest.clientId())
@@ -51,21 +42,11 @@ public class BasketService {
                 .build();
         basket.calculeteTotalPrice();
         return basketRepository.save(basket);
-
     }
 
     public Basket updateBasket (String basketId, BasketRequest basketRequest) {
         Basket savedbasket = getBasketById(basketId);
-        List<Product> arrayProducts = new ArrayList<>();
-        basketRequest.products().forEach(productRequest -> {
-            PlatzProductResponse platzProductResponse = productService.getProductById(productRequest.id());
-            arrayProducts.add(Product.builder()
-                    .id(platzProductResponse.id())
-                    .title(platzProductResponse.title())
-                    .price(platzProductResponse.price())
-                    .quantity(productRequest.quantity())
-                    .build());
-        });
+        List<Product> arrayProducts = getProducts(basketRequest);
 
         savedbasket.setProducts(arrayProducts);
         savedbasket.calculeteTotalPrice();
@@ -78,5 +59,19 @@ public class BasketService {
         savedbasket.setPaymentMethod(paymentRequest.getPaymentMethod());
         savedbasket.setStatus(Status.CLOSE);
         return basketRepository.save(savedbasket);
+    }
+
+    private List<Product> getProducts(BasketRequest basketRequest) {
+        List<Product> arrayProducts = new ArrayList<>();
+        basketRequest.products().forEach(productRequest -> {
+            PlatzProductResponse platzProductResponse = productService.getProductById(productRequest.id());
+            arrayProducts.add(Product.builder()
+                    .id(platzProductResponse.id())
+                    .title(platzProductResponse.title())
+                    .price(platzProductResponse.price())
+                    .quantity(productRequest.quantity())
+                    .build());
+        });
+        return arrayProducts;
     }
 }
