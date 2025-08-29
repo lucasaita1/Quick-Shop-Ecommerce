@@ -6,6 +6,8 @@ import dev.lucas.ecommerce.basketservice.Controller.Request.PaymentRequest;
 import dev.lucas.ecommerce.basketservice.Entity.Basket;
 import dev.lucas.ecommerce.basketservice.Entity.Product;
 import dev.lucas.ecommerce.basketservice.Enum.Status;
+import dev.lucas.ecommerce.basketservice.Exceptions.BusinessException;
+import dev.lucas.ecommerce.basketservice.Exceptions.DataNotFoundException;
 import dev.lucas.ecommerce.basketservice.Repository.BasketRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -22,13 +24,13 @@ public class BasketService {
     private final ProductService productService;
 
     public Basket getBasketById (String id){
-        return basketRepository.findById(id).orElseThrow(()-> new IllegalArgumentException("Basket not found"));
+        return basketRepository.findById(id).orElseThrow(()-> new DataNotFoundException("Basket not found"));
     }
 
     public Basket createBasket (BasketRequest basketRequest){
         basketRepository.findByClientAndStatus(basketRequest.clientId(), Status.OPEN)
                 .ifPresent(basket -> {
-                    throw new IllegalStateException("There is already an open basket for this client");
+                    throw new BusinessException("There is already an open basket for this client");
                 });
 
         List<Product> arrayProducts = new ArrayList<>();
