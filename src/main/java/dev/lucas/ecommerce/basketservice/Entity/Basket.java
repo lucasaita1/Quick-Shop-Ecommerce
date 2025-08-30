@@ -21,7 +21,7 @@ public class Basket {
     @Id
     private String id;
 
-    private long client;
+    private String client;
 
     private BigDecimal totalPrice;
 
