@@ -3,13 +3,15 @@ package dev.lucas.ecommerce.basketservice.Controller;
 import dev.lucas.ecommerce.basketservice.Controller.Request.BasketRequest;
 import dev.lucas.ecommerce.basketservice.Controller.Request.PaymentRequest;
 import dev.lucas.ecommerce.basketservice.Entity.Basket;
+import dev.lucas.ecommerce.basketservice.Exceptions.DataNotFoundException;
 import dev.lucas.ecommerce.basketservice.Service.BasketService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
+import java.util.List;
+
 
 @RequiredArgsConstructor
 @RestController
@@ -21,6 +23,12 @@ public class BasketController {
     @GetMapping("/{id}")
     public ResponseEntity<Basket> basketById(@PathVariable String id) {
         return ResponseEntity.ok().body(service.getBasketById(id));
+    }
+
+    @GetMapping("/{id}/client")
+    public ResponseEntity<List<Basket>> getBasketsFromClient(@PathVariable String id) {
+        List<Basket> baskets = service.getBasketFromClient(id);
+        return ResponseEntity.ok(baskets);
     }
 
     @PostMapping
