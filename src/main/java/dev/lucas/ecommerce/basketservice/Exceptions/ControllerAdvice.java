@@ -19,4 +19,13 @@ public class ControllerAdvice {
     public String handleBusinessException(DataNotFoundException ex) {
         return ex.getMessage();
     }
+
+    @ExceptionHandler(UserCreateArgumentExeption.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public String handleIllegalArgument(IllegalArgumentException e) {
+        return e.getMessage();
+    }
+
 }
+
+
