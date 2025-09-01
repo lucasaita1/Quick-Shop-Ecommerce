@@ -7,7 +7,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableCaching
-@EnableFeignClients(basePackages = "dev.lucas.ecommerce.basketservice.client")
+@EnableFeignClients(basePackages = "dev.lucas.ecommerce.basketservice.clientAPI")
 public class BasketserviceApplication {
 
     public static void main(String[] args) {
