@@ -1,8 +1,8 @@
 package dev.lucas.ecommerce.basketservice.Service;
 
 
-import dev.lucas.ecommerce.basketservice.Client.PlatzStoreClient;
-import dev.lucas.ecommerce.basketservice.Client.Response.PlatzProductResponse;
+import dev.lucas.ecommerce.basketservice.ClientAPI.PlatzStoreClient;
+import dev.lucas.ecommerce.basketservice.ClientAPI.Response.PlatzProductResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.Cacheable;

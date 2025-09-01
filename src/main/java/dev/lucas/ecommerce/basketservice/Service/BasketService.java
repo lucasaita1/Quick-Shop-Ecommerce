@@ -1,6 +1,6 @@
 package dev.lucas.ecommerce.basketservice.Service;
 
-import dev.lucas.ecommerce.basketservice.Client.Response.PlatzProductResponse;
+import dev.lucas.ecommerce.basketservice.ClientAPI.Response.PlatzProductResponse;
 import dev.lucas.ecommerce.basketservice.Controller.Request.BasketRequest;
 import dev.lucas.ecommerce.basketservice.Controller.Request.PaymentRequest;
 import dev.lucas.ecommerce.basketservice.Entity.Basket;

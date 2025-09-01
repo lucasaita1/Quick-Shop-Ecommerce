@@ -1,6 +1,6 @@
 package dev.lucas.ecommerce.basketservice.Controller;
 
-import dev.lucas.ecommerce.basketservice.Client.Response.PlatzProductResponse;
+import dev.lucas.ecommerce.basketservice.ClientAPI.Response.PlatzProductResponse;
 import dev.lucas.ecommerce.basketservice.Service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

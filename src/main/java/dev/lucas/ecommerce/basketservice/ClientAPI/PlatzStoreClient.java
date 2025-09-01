@@ -1,7 +1,7 @@
-package dev.lucas.ecommerce.basketservice.Client;
+package dev.lucas.ecommerce.basketservice.ClientAPI;
 
 
-import dev.lucas.ecommerce.basketservice.Client.Response.PlatzProductResponse;
+import dev.lucas.ecommerce.basketservice.ClientAPI.Response.PlatzProductResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

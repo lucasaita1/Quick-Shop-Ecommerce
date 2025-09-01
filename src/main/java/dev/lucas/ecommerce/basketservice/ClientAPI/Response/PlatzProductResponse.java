@@ -1,4 +1,4 @@
-package dev.lucas.ecommerce.basketservice.Client.Response;
+package dev.lucas.ecommerce.basketservice.ClientAPI.Response;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
