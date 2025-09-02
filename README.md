@@ -337,16 +337,20 @@ Content-Type: application/json
 
 ## 🤝 Contribuindo
 
-1. Fork o projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
-3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
-4. Push para a branch (`git push origin feature/AmazingFeature`)
-5. Abra um Pull Request
+Contribuições são bem-vindas! Se você deseja contribuir com este projeto, siga estas etapas:
+
+1.  Faça um fork do repositório.
+2.  Crie uma nova branch para sua feature (`git checkout -b feature/sua-feature`).
+3.  Faça suas alterações e adicione testes, se aplicável.
+4.  Commit suas alterações (`git commit -m 'feat: Adiciona nova feature'`).
+5.  Envie para a branch (`git push origin feature/sua-feature`).
+6.  Abra um Pull Request.
+
+Por favor, certifique-se de que seu código siga os padrões de qualidade do projeto e que todos os testes passem.
 
 ### Padrões de Código
 
 - Seguir convenções Java e Spring Boot
-- Manter cobertura de testes acima de 80%
 - Documentar APIs com OpenAPI/Swagger
 - Usar commits convencionais
 
