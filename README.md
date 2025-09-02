@@ -168,7 +168,7 @@ A API do BasketService expõe os seguintes endpoints:
 
 | Método | Endpoint      | Descrição           | Requisição                                 | Resposta                                  |
 |--------|---------------|---------------------|--------------------------------------------|-------------------------------------------|
-| `POST` | `/register`   | Registra um novo cliente | `ClientRequest` (email, password)          | `ClientResponse` (id, email)              |
+| `POST` | `/register`   | Registra um novo cliente | `ClientRequest` (name, email, CPF, password) | `ClientResponse` (id, email)              |
 | `POST` | `/login`      | Autentica um cliente | `LoginRequest` (email, password)           | `String` (JWT Token)                      |
 
 ### Cesta de Compras (`/basket`)
