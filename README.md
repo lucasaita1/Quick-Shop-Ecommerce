@@ -64,7 +64,6 @@ Este projeto é um serviço de backend desenvolvido em Spring Boot para gerencia
 #### 🔐 Autenticação
 - Autenticação via JWT (JSON Web Token)
 - Proteção de rotas com Spring Security
-- Token refresh automático
 
 #### 🆕 Criação de Carrinho
 - Validação de cliente único
@@ -333,7 +332,6 @@ Content-Type: application/json
 | `401` | Token JWT inválido ou expirado |
 | `403` | Acesso negado ao recurso |
 | `404` | Carrinho ou item não encontrado |
-| `409` | Conflito (ex: produto sem estoque) |
 | `500` | Erro interno do servidor |
 
 
