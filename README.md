@@ -199,6 +199,8 @@ A documentação interativa da API está disponível via Swagger UI. Após inici
 
 Você pode usar esta interface para explorar os endpoints, testar requisições e entender a estrutura das respostas
 
+## 💬 Exemplos de input e respostas das rotas
+
 ### Autenticação
 
 #### Login
@@ -362,7 +364,7 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 **Lucas Aita**
 - GitHub: [@lucasaita1](https://github.com/lucasaita1)
-- LinkedIn: [Lucas Aita](https://linkedin.com/in/lucasaita1)
+- LinkedIn: [Lucas Aita](https://linkedin.com/in/lucas.aita)
 
 ---
 
